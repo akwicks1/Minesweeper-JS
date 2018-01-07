@@ -20,7 +20,8 @@ const generateBombBoard = (numberOfRows, numberOfColumns, numberOfBombs) => {
     }
     board.push(row);
   }
-  return board;
+
+
 
   let numberOfBombsPlaced = 0;
   while (numberOfBombsPlaced < numberOfBombs){
@@ -28,7 +29,7 @@ const generateBombBoard = (numberOfRows, numberOfColumns, numberOfBombs) => {
   let randomColumnIndex = Math.floor(Math.random() * numberOfColumns);
   board[randomRowIndex][randomColumnIndex] = 'B';
   numberOfBombsPlaced++;
-
+  return board;
     //fix with control flow
   }};
 
@@ -36,3 +37,14 @@ const generateBombBoard = (numberOfRows, numberOfColumns, numberOfBombs) => {
 const printBoard = (board) => {
   console.log(board.map(row => row.join(' | ')).join('\n'));
 };
+
+let playerBoard = generatePlayerBoard(3,4);
+let bombBoard = generateBombBoard(2,3,6);
+
+console.log('Player Board: ');
+
+printBoard(playerBoard);
+
+console.log('Bomb Board: ');
+
+printBoard(bombBoard);
